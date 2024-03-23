@@ -1,13 +1,13 @@
  pipeline {
   agent any
   environment {
-    CODE_CHANGES = true
+    CODE_CHANGES = 'true'
   }
   stages {
     stage('build') {
       when {
         expression {
-          CODE_CHANGES == true
+          CODE_CHANGES == 'true'
         }
       }
       steps {
