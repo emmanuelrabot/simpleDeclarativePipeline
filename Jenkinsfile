@@ -13,6 +13,13 @@
     CREDENTIALS = credentials('erabot-password')
   }
   stages {
+    stage('init') {
+     steps {
+      script {
+          gv = load "script.groovy"
+      }
+     }
+    }
     stage('build') {
       when {
         expression {
@@ -21,6 +28,7 @@
       }
       steps {
         echo "Building ${JOB_NAME}.${BUILD_ID} for ${params.VERSION}"
+        gv.aFunction()
         sh "mvn --version" 
       }
     }
