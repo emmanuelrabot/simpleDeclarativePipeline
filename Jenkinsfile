@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
   agent any
   environment {
     CODE_CHANGES = true
@@ -21,6 +21,7 @@ pipeline {
         }
       }
         steps {
+          echo CODE_CHANGES
           echo BRANCH_NAME
           echo 'Testing'
         }
