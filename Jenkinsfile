@@ -1,6 +1,8 @@
-CODE_CHANGES == true
 pipeline {
   agent any
+  environment {
+    CODE_CHANGES == true
+  }
   stages {
     stage('build') {
       when {
