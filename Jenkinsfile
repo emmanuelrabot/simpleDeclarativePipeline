@@ -2,6 +2,7 @@
   agent any
   environment {
     CODE_CHANGES = 'true'
+    CREDENTIALS credentials('erabot-password')
   }
   stages {
     stage('build') {
@@ -29,6 +30,7 @@
     stage('deploy') {
       steps {
         echo 'Deploying'
+        echo CREDENTIALS
       }
     }
   }
