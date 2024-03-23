@@ -3,6 +3,11 @@
   //tools {
   //   maven 'Maven'
   //}
+  parameters {
+     string(name: 'VERSION', defaultValue: '', decription: 'Version to deploy')
+     choice(name: 'ENV', choices: ['VF', 'HF', 'PROD'], decription: 'Environment')
+     booleanParam(name: 'executeTests', defaultValue: true, decription: 'launch tests ?')
+  }
   environment {
     CODE_CHANGES = 'true'
     CREDENTIALS = credentials('erabot-password')
@@ -15,14 +20,14 @@
         }
       }
       steps {
-        echo "Building ${JOB_NAME}.${BUILD_ID}"
+        echo "Building ${JOB_NAME}.${BUILD_ID} for ${params.VERSION}"
         sh "mvn --version" 
       }
     }
     stage('test') {
       when {
         expression {
-          BRANCH_NAME == 'dev' || BRANCH_NAME == 'main'
+          (BRANCH_NAME == 'dev' || BRANCH_NAME == 'main') && params.executeTests
         }
       }
         steps {
@@ -36,7 +41,7 @@
          withCredentials([usernamePassword(credentialsId: 'erabot-password', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
         	   sh "echo \"${USERNAME} ${PASSWORD}\""
         }
-        echo 'Deploying'
+        echo 'Deploying ${params.ENV}'
       }
     }
   }
