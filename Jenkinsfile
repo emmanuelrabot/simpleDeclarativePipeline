@@ -3,7 +3,6 @@
   environment {
     CODE_CHANGES = 'true'
     CREDENTIALS = credentials('erabot-password')
-    CREDENTIALS_B64 = "${CREDENTIALS}".encodeBase64().toString()
   }
   stages {
     stage('build') {
@@ -30,6 +29,13 @@
     }
     stage('deploy') {
       steps {
+         withCredentials([usernamePassword(credentialsId: 'erabot-password', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+        	   sh '''
+        		     echo $USERNAME > tmp
+        		      echo $PASSWORD >> tmp
+        	   '''
+        }
+        sh 'cat tmp'
         echo 'Deploying'
         echo "${CREDENTIALS}"
       }
