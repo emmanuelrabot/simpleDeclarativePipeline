@@ -7,7 +7,7 @@
     stage('build') {
       when {
         expression {
-          CODE_CHANGES == true
+          CODE_CHANGES
         }
       }
       steps {
