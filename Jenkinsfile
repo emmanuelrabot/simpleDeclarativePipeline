@@ -29,15 +29,10 @@
     }
     stage('deploy') {
       steps {
-         withCredentials([usernamePassword(credentialsId: 'erabot-password', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-        	   sh '''
-        		     echo $USERNAME > tmp
-        		      echo $PASSWORD >> tmp
-        	   '''
+         withCredentials([usernamePassword(credentialsId: 'erabot-password', passwordVariable: PASSWORD, usernameVariable: USERNAME)]) {
+        	   sh "echo \"${USERNAME} ${PASSWORD}\""
         }
-        sh 'cat tmp'
         echo 'Deploying'
-        echo "${CREDENTIALS}"
       }
     }
   }
