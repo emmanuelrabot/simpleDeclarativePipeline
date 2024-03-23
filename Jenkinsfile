@@ -4,9 +4,9 @@
   //   maven 'Maven'
   //}
   parameters {
-     string(name: 'VERSION', defaultValue: '', decription: 'Version to deploy')
-     choice(name: 'ENV', choices: ['VF', 'HF', 'PROD'], decription: 'Environment')
-     booleanParam(name: 'executeTests', defaultValue: true, decription: 'launch tests ?')
+     string(name: 'VERSION', defaultValue: '', description: 'Version to deploy')
+     choice(name: 'ENV', choices: ['VF', 'HF', 'PROD'], description: 'Environment')
+     booleanParam(name: 'executeTests', defaultValue: true, description: 'launch tests ?')
   }
   environment {
     CODE_CHANGES = 'true'
