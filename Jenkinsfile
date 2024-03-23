@@ -11,7 +11,7 @@
         }
       }
       steps {
-        echo 'Building'
+        echo 'Building TAG_NAME'
       }
     }
     stage('test') {
