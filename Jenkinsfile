@@ -30,7 +30,7 @@
     stage('deploy') {
       steps {
         echo 'Deploying'
-        echo CREDENTIALS
+        echo "${CREDENTIALS}"
       }
     }
   }
