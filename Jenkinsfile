@@ -13,6 +13,7 @@ pipeline {
         }
       }
         steps {
+          echo BRANCH_NAME
           echo 'Testing'
         }
     }
