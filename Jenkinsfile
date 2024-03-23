@@ -11,7 +11,7 @@
         }
       }
       steps {
-        echo "Building ${TAG_NAME}"
+        echo "Building ${BUILD_ID}"
       }
     }
     stage('test') {
