@@ -41,7 +41,7 @@
          withCredentials([usernamePassword(credentialsId: 'erabot-password', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
         	   sh "echo \"${USERNAME} ${PASSWORD}\""
         }
-        echo 'Deploying ${params.ENV}'
+        echo "Deploying ${params.ENV}"
       }
     }
   }
