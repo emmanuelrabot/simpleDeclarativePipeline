@@ -16,7 +16,7 @@
       }
       steps {
         echo "Building ${JOB_NAME}.${BUILD_ID}"
-        sh "mvn build" 
+        sh "mvn --version" 
       }
     }
     stage('test') {
