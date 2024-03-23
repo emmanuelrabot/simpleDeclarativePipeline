@@ -11,7 +11,7 @@
         }
       }
       steps {
-        echo "Building ${JOB_BASE_NAME}.${BUILD_ID}"
+        echo "Building ${JOB_NAME}.${BUILD_ID}"
       }
     }
     stage('test') {
