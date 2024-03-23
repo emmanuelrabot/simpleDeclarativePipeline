@@ -4,7 +4,7 @@
   //   maven 'Maven'
   //}
   parameters {
-     string(name: 'VERSION', defaultValue: '', description: 'Version to deploy')
+     string(name: 'VERSION', defaultValue: '1.0', description: 'Version to deploy')
      choice(name: 'ENV', choices: ['VF', 'HF', 'PROD'], description: 'Environment')
      booleanParam(name: 'executeTests', defaultValue: true, description: 'launch tests ?')
   }
