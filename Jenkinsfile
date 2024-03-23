@@ -28,7 +28,9 @@
       }
       steps {
         echo "Building ${JOB_NAME}.${BUILD_ID} for ${params.VERSION}"
-        gv.aFunction()
+        script {
+           gv.aFunction()
+        }
         sh "mvn --version" 
       }
     }
