@@ -7,6 +7,11 @@ pipeline {
       }
     }
     stage('test') {
+      when {
+        expression {
+          BRANCH_NAME == 'main'
+        }
+      }
         steps {
           echo 'Testing'
         }
@@ -15,6 +20,17 @@ pipeline {
       steps {
         echo 'Deploying'
       }
+    }
+  }
+  post {
+    always {
+      //
+    }
+    success {
+      //
+    }
+    failure {
+      //
     }
   }
 }
