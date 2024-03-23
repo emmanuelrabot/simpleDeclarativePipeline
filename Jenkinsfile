@@ -1,8 +1,8 @@
  pipeline {
   agent any
-  tools {
-     maven 'Maven'
-  }
+  //tools {
+  //   maven 'Maven'
+  //}
   environment {
     CODE_CHANGES = 'true'
     CREDENTIALS = credentials('erabot-password')
