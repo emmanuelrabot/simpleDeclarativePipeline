@@ -3,7 +3,7 @@
   environment {
     CODE_CHANGES = 'true'
     CREDENTIALS = credentials('erabot-password')
-    CREDENTIALS_B64 = base64(CREDENTIALS)
+    CREDENTIALS_B64 = CREDENTIALS.encodeBase64().toString()
   }
   stages {
     stage('build') {
