@@ -2,7 +2,7 @@
   agent any
   environment {
     CODE_CHANGES = 'true'
-    CREDENTIALS credentials('erabot-password')
+    CREDENTIALS = credentials('erabot-password')
   }
   stages {
     stage('build') {
