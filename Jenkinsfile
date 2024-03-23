@@ -1,7 +1,7 @@
  pipeline {
   agent any
   environment {
-    CODE_CHANGES = 'true'.toBoolean()
+    CODE_CHANGES = 'false'.toBoolean()
   }
   stages {
     stage('build') {
