@@ -1,5 +1,8 @@
  pipeline {
   agent any
+  tools {
+     maven 'Maven'
+  }
   environment {
     CODE_CHANGES = 'true'
     CREDENTIALS = credentials('erabot-password')
@@ -13,6 +16,7 @@
       }
       steps {
         echo "Building ${JOB_NAME}.${BUILD_ID}"
+        sh "mvn build" 
       }
     }
     stage('test') {
